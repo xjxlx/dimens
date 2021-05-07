@@ -4,12 +4,13 @@
 
 
 使用：
-	     allprojects {
+	     
+	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
-	}
+	}	    
   
   	dependencies {
 	        implementation 'com.github.xjxlx:dimens:Tag'
