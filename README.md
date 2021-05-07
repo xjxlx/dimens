@@ -13,6 +13,6 @@
 	}	    
   
   	dependencies {
-	        implementation 'com.github.xjxlx:dimens:Tag'
+	        implementation 'com.github.xjxlx:dimens:1.0.0.0.1'
 	}
 
