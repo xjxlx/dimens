@@ -14,5 +14,8 @@
   
   	dependencies {
 	        implementation 'com.github.xjxlx:dimens:1.0.0.0.1'
+            
+            // 最新
+            implementation 'com.github.xjxlx:dimens:1.1.0'
 	}
 
