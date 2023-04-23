@@ -1,3 +1,3 @@
 include ':demens'
-include ':app'
+// include ':app'
 rootProject.name = "dimens"
