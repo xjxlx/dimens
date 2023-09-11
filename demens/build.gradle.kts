@@ -24,6 +24,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 //afterEvaluate {
@@ -56,7 +63,7 @@ fun latestGitTag(): String {
 
 publishing { // 发布配置
     publications {// 发布内容
-        register<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
             groupId = "com.android.apphelper"
             artifactId = "dimens"// 插件名称
             version = VERSION // 版本号
