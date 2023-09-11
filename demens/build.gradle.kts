@@ -21,32 +21,48 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
 //afterEvaluate {
 //    publishing {
 //        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                from components . release groupId = "com.github.xjxlx.dimens"// groupId 随便取，jitpack不会使用
-//                artifactId = "android-example"// artifactId 随便取,jitpack不会使用
-//                version = "1.3.0" // version 随便取，jitpack不会使用
+//            create<MavenPublication>("maven") {
+//                // 插件id，格式：com.gitee/github.用户名
+//                groupId = "com.android.apphelper"
+//                artifactId = "dimens"// 插件名称
+//                version = "1.3.1"// 版本号
+//                from(components["release"])
 //            }
 //        }
 //    }
 //}
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                // 插件id，格式：com.gitee/github.用户名
-                groupId = "com.android.apphelper"
-                artifactId = "dimens"// 插件名称
-                version = "1.3.1"// 版本号
+val VERSION = latestGitTag().ifEmpty { Config.versionName }
+
+/**
+ * 获取 git 仓库中最新的 tag作为版本号
+ */
+fun latestGitTag(): String {
+    val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
+    return process.inputStream.bufferedReader()
+        .use { bufferedReader ->
+            bufferedReader.readText()
+                .trim()
+        }
+}
+
+publishing { // 发布配置
+    publications {// 发布内容
+        register<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+            groupId = "com.android.apphelper"
+            artifactId = "dimens"// 插件名称
+            version = VERSION // 版本号
+
+            afterEvaluate {// 在所有的配置都完成之后执行
+                // 从当前 module 的 release 包中发布
                 from(components["release"])
             }
         }

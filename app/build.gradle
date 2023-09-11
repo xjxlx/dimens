@@ -1,20 +1,17 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
+    id "com.android.application"
+    id "kotlin-android"
 }
 
-def version = rootProject.ext.android
-
 android {
-    compileSdkVersion version.compileSdkVersion
-    buildToolsVersion version.buildToolsVersion
+    compileSdk = (Config.compileSdk)
 
     defaultConfig {
         applicationId "android.apphelper.dimens"
-        minSdkVersion version.minSdkVersion
-        targetSdkVersion version.targetSdkVersion
-        versionCode version.versionCode
-        versionName version.versionName
+        minSdkVersion Config.minSdk
+        targetSdkVersion Config.targetSdk
+        versionCode Config.versionCode
+        versionName Config.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,7 +19,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
     compileOptions {
@@ -30,13 +27,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+
 dependencies {
-    implementation project(path: ':demens')
-    implementation 'com.google.android.material:material:1.4.0'
-    // implementation 'androidx.appcompat:appcompat:1.3.1'
-    // implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    // testImplementation 'junit:junit:4.13.2'
-    // androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    // androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation project(path: ":demens")
+    implementation "com.google.android.material:material:1.4.0"
+    // implementation "androidx.appcompat:appcompat:1.3.1"
+    // implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    // testImplementation "junit:junit:4.13.2"
+    // androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    // androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
 }
 
