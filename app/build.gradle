@@ -29,6 +29,6 @@ android {
 }
 
 dependencies {
-    implementation project(path: ":dimens")
+    implementation project(path: ":resDimens")
     implementation "com.google.android.material:material:1.4.0"
 }
