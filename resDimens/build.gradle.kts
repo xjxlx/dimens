@@ -36,19 +36,19 @@ android {
 //    }
 }
 
-val VERSION = latestGitTag().ifEmpty { Config.versionName }
-
-/**
- * 获取 git 仓库中最新的 tag作为版本号
- */
-fun latestGitTag(): String {
-    val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
-    return process.inputStream.bufferedReader()
-        .use { bufferedReader ->
-            bufferedReader.readText()
-                .trim()
-        }
-}
+//val VERSION = latestGitTag().ifEmpty { Config.versionName }
+//
+///**
+// * 获取 git 仓库中最新的 tag作为版本号
+// */
+//fun latestGitTag(): String {
+//    val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
+//    return process.inputStream.bufferedReader()
+//        .use { bufferedReader ->
+//            bufferedReader.readText()
+//                .trim()
+//        }
+//}
 
 //publishing { // 发布配置
 //    publications {// 发布内容

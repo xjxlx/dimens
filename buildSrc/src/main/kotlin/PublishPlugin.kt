@@ -24,7 +24,7 @@ abstract class PublishPlugin : Plugin<Project> {
             val modelName = getModelNameForNamespace(extension.namespace)
             println("> Task :[modelName] :${modelName}")
             // 3: 发布
-            publish(project, modelName)
+            publishTask(project, modelName)
         }
     }
 
@@ -67,14 +67,13 @@ abstract class PublishPlugin : Plugin<Project> {
      *     id "maven-publish"
      *   }
      */
-    private fun publish(project: Project, modelName: String) {
-        // project.plugins.apply("maven-publish")
+    private fun publishTask(project: Project, modelName: String) {
+        project.plugins.apply("maven-publish")
         project.extensions.getByType(PublishingExtension::class.java)
             .apply {
                 // 发布内容
                 this.publications {
-                    // 注册一个名字为 release 的发布内容
-                    create<MavenPublication>("release", MavenPublication::class.java, object : Action<MavenPublication> {
+                    create("release", MavenPublication::class.java, object : Action<MavenPublication> {
                         override fun execute(it: MavenPublication) {
                             it.groupId = "com.android" // 组的名字
                             it.artifactId = modelName // 插件名称
