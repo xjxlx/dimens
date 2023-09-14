@@ -13,19 +13,9 @@ abstract class PublishPlugin : Plugin<Project> {
 
     val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
-    /**
-     * 获取 git 仓库中最新的 tag作为版本号
-     */
-    fun latestGitTag(): String {
-        val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
-        return process.inputStream.bufferedReader()
-            .use { bufferedReader ->
-                bufferedReader.readText()
-                    .trim()
-            }
-    }
-
     override fun apply(project: Project) {
+        project.pluginManager.apply("maven-publish")
+
         // 在从构建文件对DSL对象进行评估之后，以及在构建过程的后续步骤(如变体或任务创建)中使用之前，以编程方式自定义DSL对象的API。
         val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)
         androidComponents.finalizeDsl { extension ->
@@ -81,8 +71,7 @@ abstract class PublishPlugin : Plugin<Project> {
      *   }
      */
     private fun publish(project: Project, modelName: String) {
-        project.plugins.apply("maven-publish")
-
+        // project.plugins.apply("maven-publish")
         project.extensions.getByType(PublishingExtension::class.java)
             .apply {
                 // 发布内容
@@ -103,6 +92,18 @@ abstract class PublishPlugin : Plugin<Project> {
                         }
                     })
                 }
+            }
+    }
+
+    /**
+     * 获取 git 仓库中最新的 tag作为版本号
+     */
+    private fun latestGitTag(): String {
+        val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
+        return process.inputStream.bufferedReader()
+            .use { bufferedReader ->
+                bufferedReader.readText()
+                    .trim()
             }
     }
 }
