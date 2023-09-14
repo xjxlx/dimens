@@ -24,28 +24,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     publishing {
         singleVariant("release") {
             withSourcesJar()
             withJavadocJar()
-        }
-    }
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("maven") {
-                // 插件id，格式：com.gitee/github.用户名
-                groupId = "com.android.apphelper"
-                artifactId = "dimens"// 插件名称
-                version = "1.3.1"// 版本号
-                from(components["release"])
-            }
         }
     }
 }
