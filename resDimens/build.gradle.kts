@@ -3,7 +3,7 @@ plugins {
     id("maven-publish")
 }
 
-//apply<PublishPlugin>()
+apply<PublishPlugin>()
 
 group = "com.github.jitpack"
 version = "1.0"
@@ -28,12 +28,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
+//    publishing {
+//        singleVariant("release") {
+//            withSourcesJar()
+//            withJavadocJar()
+//        }
+//    }
 }
 
 val VERSION = latestGitTag().ifEmpty { Config.versionName }
