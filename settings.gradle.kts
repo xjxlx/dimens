@@ -25,6 +25,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "resDimens"
-include(":dimensLib")
+include(":resDimens")
 include(":app")
 
