@@ -50,17 +50,16 @@ fun latestGitTag(): String {
         }
 }
 
-publishing { // 发布配置
-    publications {// 发布内容
-        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
-            groupId = "com.android.apphelper"
-            artifactId = "dimens"// 插件名称
-            version = VERSION // 版本号
-
-            afterEvaluate {// 在所有的配置都完成之后执行
-                // 从当前 module 的 release 包中发布
-                from(components["release"])
-            }
-        }
-    }
-}
+//publishing { // 发布配置
+//    publications {// 发布内容
+//        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+//            groupId = "com.android.apphelper"
+//            artifactId = "dimens"// 插件名称
+//            version = VERSION // 版本号
+//            afterEvaluate {// 在所有的配置都完成之后执行
+//                // 从当前 module 的 release 包中发布
+//                from(components["release"])
+//            }
+//        }
+//    }
+//}

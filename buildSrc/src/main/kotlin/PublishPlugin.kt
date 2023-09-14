@@ -5,7 +5,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.internal.impldep.org.apache.http.util.TextUtils
 
 /**
  * 发布应用的插件
@@ -15,41 +14,18 @@ abstract class PublishPlugin : Plugin<Project> {
     val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
     override fun apply(project: Project) {
-//        project.beforeEvaluate {
-//            val pluginName = project.pluginManager.findPlugin("maven-publish")?.name
-//            if (TextUtils.isEmpty(pluginName)) {
-//                project.pluginManager.apply("maven-publish")
-//                println("> Task :apply :[maven-publish] plugin !")
-//            } else {
-//                println("> Task : plugins exist and do not need to be added again!")
-//            }
-//        }
-//
-//        // 在从构建文件对DSL对象进行评估之后，以及在构建过程的后续步骤(如变体或任务创建)中使用之前，以编程方式自定义DSL对象的API。
-//        val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)
-//        androidComponents.finalizeDsl { extension ->
-//            // 1: 注册发布的release类型
-//            registerPublishType(project)
-//
-//            // 2: 获取model的名字
-//            val modelName = getModelNameForNamespace(extension.namespace)
-//            println("> Task :[modelName] :${modelName}")
-//
-//            // 3：发布设置
-//            publish(project, modelName)
-//        }
-
-//        project.beforeEvaluate {
-//            val libraryExtension = project.extensions.getByType(LibraryExtension::class.java)
-//            libraryExtension.publishing {
-//                singleVariant("release") {
-//                    withSourcesJar()
-//                    withJavadocJar()
-//                }
-//            }
-//        }
-
+        // 1：注册一个release类型的发布信息
         registerPublishType(project)
+
+        // 在从构建文件对DSL对象进行评估之后，以及在构建过程的后续步骤(如变体或任务创建)中使用之前，以编程方式自定义DSL对象的API。
+        val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)
+        androidComponents.finalizeDsl { extension ->
+            // 2: 获取model的名字
+            val modelName = getModelNameForNamespace(extension.namespace)
+            println("> Task :[modelName] :${modelName}")
+            // 3: 发布
+            publish(project, modelName)
+        }
     }
 
     /**
