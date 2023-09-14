@@ -1,5 +1,6 @@
 package android.apphelper.dimens
 
+import android.apphelper.dimens.app.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
