@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-//    id("maven-publish")
+    id("maven-publish")
 }
 
 apply<PublishPlugin>()
@@ -28,13 +28,16 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-//    publishing {
-//        singleVariant("release") {
-//            withSourcesJar()
-//            withJavadocJar()
-//        }
-//    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
+
+
+
 
 //val VERSION = latestGitTag().ifEmpty { Config.versionName }
 //
@@ -63,3 +66,7 @@ android {
 //        }
 //    }
 //}
+
+publishing{
+
+}
