@@ -14,18 +14,22 @@ abstract class PublishPlugin : Plugin<Project> {
     val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
     override fun apply(project: Project) {
+        project.plugins.apply("maven-publish")
+
         // 1：注册一个release类型的发布信息
         registerPublishType(project)
 
         // 在从构建文件对DSL对象进行评估之后，以及在构建过程的后续步骤(如变体或任务创建)中使用之前，以编程方式自定义DSL对象的API。
-        val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)
-        androidComponents.finalizeDsl { extension ->
-            // 2: 获取model的名字
-            val modelName = getModelNameForNamespace(extension.namespace)
-            println("> Task :[modelName] :${modelName}")
-            // 3: 发布
-            publishTask(project, modelName)
-        }
+//        val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)
+//        androidComponents.finalizeDsl { extension ->
+//            // 2: 获取model的名字
+//            val modelName = getModelNameForNamespace(extension.namespace)
+//            println("> Task :[modelName] :${modelName}")
+//            // 3: 发布
+//            publishTask(project, modelName)
+//        }
+
+        publishTask(project, "modelName")
     }
 
     /**
@@ -68,7 +72,6 @@ abstract class PublishPlugin : Plugin<Project> {
      *   }
      */
     private fun publishTask(project: Project, modelName: String) {
-        project.plugins.apply("maven-publish")
         project.extensions.getByType(PublishingExtension::class.java)
             .apply {
                 // 发布内容
