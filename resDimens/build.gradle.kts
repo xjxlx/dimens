@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("maven-publish")
+//    id("maven-publish")
 }
 
 apply<PublishPlugin>()
@@ -36,9 +36,6 @@ android {
     }
 }
 
-
-
-
 //val VERSION = latestGitTag().ifEmpty { Config.versionName }
 //
 ///**
@@ -58,7 +55,7 @@ android {
 //        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
 //            groupId = "com.android.apphelper"
 //            artifactId = "dimens"// 插件名称
-//            version = VERSION // 版本号
+//            version = "VERSION" // 版本号
 //            afterEvaluate {// 在所有的配置都完成之后执行
 //                // 从当前 module 的 release 包中发布
 //                from(components["release"])
@@ -66,7 +63,7 @@ android {
 //        }
 //    }
 //}
-
-publishing{
-
-}
+//
+//publishing{
+//
+//}

@@ -14,7 +14,7 @@ abstract class PublishPlugin : Plugin<Project> {
     val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
     override fun apply(project: Project) {
-//        project.plugins.apply("maven-publish")
+        project.plugins.apply("maven-publish")
 
         // 1：注册一个release类型的发布信息
 //        registerPublishType(project)
