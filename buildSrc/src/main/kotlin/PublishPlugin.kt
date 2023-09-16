@@ -14,8 +14,6 @@ abstract class PublishPlugin : Plugin<Project> {
     val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
     override fun apply(project: Project) {
-        project.plugins.apply("maven-publish")
-
         // 1：注册一个release类型的发布信息
         registerPublishType(project)
 
@@ -28,8 +26,6 @@ abstract class PublishPlugin : Plugin<Project> {
 //            // 3: 发布
 //            publishTask(project, modelName)
 //        }
-
-        publishTask(project, "modelName")
     }
 
     /**
@@ -39,6 +35,8 @@ abstract class PublishPlugin : Plugin<Project> {
         // LibraryExtension.android
         project.extensions.getByType(LibraryExtension::class.java)
             .apply {
+                project.plugins.apply("maven-publish")
+
                 // 1：注册publishing.release
                 publishing {
                     singleVariant("release") {
@@ -47,6 +45,9 @@ abstract class PublishPlugin : Plugin<Project> {
                         println("> Task :[register:release] success! ")
                     }
                 }
+
+
+                publishTask(project, "modelName")
             }
     }
 
@@ -72,26 +73,26 @@ abstract class PublishPlugin : Plugin<Project> {
      *   }
      */
     private fun publishTask(project: Project, modelName: String) {
-        project.extensions.getByType(PublishingExtension::class.java)
-            .apply {
-                // 发布内容
-                this.publications {
-                    create("release", MavenPublication::class.java, object : Action<MavenPublication> {
-                        override fun execute(it: MavenPublication) {
-                            it.groupId = "com.android" // 组的名字
-                            it.artifactId = modelName // 插件名称
-                            it.version = VERSION // 版本号
+        // 在所有的配置都完成之后执行
+        project.afterEvaluate {
+            project.extensions.getByType(PublishingExtension::class.java)
+                .apply {
+                    // 发布内容
+                    this.publications {
+                        create("release", MavenPublication::class.java, object : Action<MavenPublication> {
+                            override fun execute(it: MavenPublication) {
+                                it.groupId = "com.android" // 组的名字
+                                it.artifactId = modelName // 插件名称
+                                it.version = VERSION // 版本号
 
-                            // 在所有的配置都完成之后执行
-                            project.afterEvaluate {
                                 // 从当前 module 的 release 包中发布
                                 it.from(components.getByName("release"))
                                 println("> Task :[publish:release] success!")
                             }
-                        }
-                    })
+                        })
+                    }
                 }
-            }
+        }
     }
 
     /**
