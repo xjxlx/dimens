@@ -8,9 +8,9 @@ plugins {
 //version = "1.0"
 
 repositories {
-    google()
-    mavenLocal()
     mavenCentral()
+    mavenLocal()
+    google()
 }
 
 //buildscript {
