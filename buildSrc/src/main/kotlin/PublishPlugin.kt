@@ -17,7 +17,7 @@ abstract class PublishPlugin : Plugin<Project> {
         project.plugins.apply("maven-publish")
 
         // 1：注册一个release类型的发布信息
-//        registerPublishType(project)
+        registerPublishType(project)
 
         // 在从构建文件对DSL对象进行评估之后，以及在构建过程的后续步骤(如变体或任务创建)中使用之前，以编程方式自定义DSL对象的API。
 //        val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)

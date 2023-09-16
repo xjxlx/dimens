@@ -1,7 +1,9 @@
 plugins {
     id("com.android.library")
-    id("maven-publish")
+//    id("maven-publish")
 }
+
+apply<PublishPlugin>()
 
 group = "com.github.jitpack"
 version = "1.0"
@@ -26,28 +28,28 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
+//    publishing {
+//        singleVariant("release") {
+//            withSourcesJar()
+//            withJavadocJar()
+//        }
+//    }
 }
 
-publishing { // 发布配置
-    publications {// 发布内容
-        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
-            groupId = "com.android.apphelper"
-            artifactId = getModelNameForNamespace()// 插件名称
-            version = latestGitTag().ifEmpty { Config.versionName } // 版本号
-
-            afterEvaluate {// 在所有的配置都完成之后执行
-                // 从当前 module 的 release 包中发布
-                from(components["release"])
-            }
-        }
-    }
-}
+//publishing { // 发布配置
+//    publications {// 发布内容
+//        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+//            groupId = "com.android.apphelper"
+//            artifactId = getModelNameForNamespace()// 插件名称
+//            version = latestGitTag().ifEmpty { Config.versionName } // 版本号
+//
+//            afterEvaluate {// 在所有的配置都完成之后执行
+//                // 从当前 module 的 release 包中发布
+//                from(components["release"])
+//            }
+//        }
+//    }
+//}
 
 /**
  * 获取model的name
