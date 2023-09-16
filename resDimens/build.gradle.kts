@@ -4,9 +4,6 @@ plugins {
 
 apply<PublishPlugin>()
 
-group = "com.github.jitpack"
-version = "1.0"
-
 android {
     namespace = "com.apphelper.dimens"
     compileSdk = (Config.compileSdk)
@@ -50,29 +47,30 @@ android {
 //    }
 //}
 
-/**
- * 获取model的name
- */
-fun getModelNameForNamespace(): String {
-    var result = "default"
-    android.namespace?.let {
-        if (it.contains(".")) {
-            result = it.split(".")
-                .reversed()
-                .first()
-        }
-    }
-    return result
-}
-
-/**
- * 获取 git 仓库中最新的 tag作为版本号
- */
-fun latestGitTag(): String {
-    val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
-    return process.inputStream.bufferedReader()
-        .use { bufferedReader ->
-            bufferedReader.readText()
-                .trim()
-        }
-}
+//
+///**
+// * 获取model的name
+// */
+//fun getModelNameForNamespace(): String {
+//    var result = "default"
+//    android.namespace?.let {
+//        if (it.contains(".")) {
+//            result = it.split(".")
+//                .reversed()
+//                .first()
+//        }
+//    }
+//    return result
+//}
+//
+///**
+// * 获取 git 仓库中最新的 tag作为版本号
+// */
+//fun latestGitTag(): String {
+//    val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
+//    return process.inputStream.bufferedReader()
+//        .use { bufferedReader ->
+//            bufferedReader.readText()
+//                .trim()
+//        }
+//}

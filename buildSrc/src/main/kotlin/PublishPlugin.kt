@@ -1,5 +1,4 @@
 import com.android.build.api.dsl.LibraryExtension
-import com.android.build.api.variant.AndroidComponentsExtension
 import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -11,21 +10,10 @@ import org.gradle.api.publish.maven.MavenPublication
  */
 abstract class PublishPlugin : Plugin<Project> {
 
-    val VERSION = latestGitTag().ifEmpty { Config.versionName }
+    private val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
     override fun apply(project: Project) {
-        // 1：注册一个release类型的发布信息
         registerPublishType(project)
-
-        // 在从构建文件对DSL对象进行评估之后，以及在构建过程的后续步骤(如变体或任务创建)中使用之前，以编程方式自定义DSL对象的API。
-//        val androidComponents = project.extensions.getByType(AndroidComponentsExtension::class.java)
-//        androidComponents.finalizeDsl { extension ->
-//            // 2: 获取model的名字
-//            val modelName = getModelNameForNamespace(extension.namespace)
-//            println("> Task :[modelName] :${modelName}")
-//            // 3: 发布
-//            publishTask(project, modelName)
-//        }
     }
 
     /**
@@ -35,9 +23,13 @@ abstract class PublishPlugin : Plugin<Project> {
         // LibraryExtension.android
         project.extensions.getByType(LibraryExtension::class.java)
             .apply {
+
+                // 1: 添加插件信息
+                project.group = "com.github.jitpack"
+                project.version = VERSION
                 project.plugins.apply("maven-publish")
 
-                // 1：注册publishing.release
+                // 2：注册publishing.release
                 publishing {
                     singleVariant("release") {
                         withSourcesJar()
@@ -46,7 +38,7 @@ abstract class PublishPlugin : Plugin<Project> {
                     }
                 }
 
-
+                // 3: 发布插件
                 publishTask(project, "modelName")
             }
     }

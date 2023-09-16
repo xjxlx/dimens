@@ -1,6 +1,6 @@
 plugins {
     `kotlin-dsl`
-    id("maven-publish")
+//    id("maven-publish")
 }
 
 repositories {
