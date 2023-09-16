@@ -37,17 +37,19 @@ android {
         }
     }
 }
+afterEvaluate {
 
-publishing { // 发布配置
-    publications {// 发布内容
-        create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
-            groupId = "com.android.apphelper"
-            artifactId = getModelNameForNamespace()// 插件名称
-            version = latestGitTag().ifEmpty { Config.versionName } // 版本号
-
-            afterEvaluate {// 在所有的配置都完成之后执行
+    publishing { // 发布配置
+        publications {// 发布内容
+            create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
                 // 从当前 module 的 release 包中发布
                 from(components["release"])
+
+                groupId = "com.android.apphelper"
+                val artifactIdValue = getModelNameForNamespace()
+                artifactId = artifactIdValue // 插件名称
+                val versionValue = latestGitTag().ifEmpty { Config.versionName }
+                version = versionValue // 版本号
             }
         }
     }
