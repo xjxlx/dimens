@@ -1,10 +1,13 @@
 plugins {
     `kotlin-dsl`
     id("maven-publish")
+    kotlin("jvm") version "1.8.0"
 }
 
 repositories {
+    gradlePluginPortal()
     google()
+    mavenLocal()
     mavenCentral()
 }
 
