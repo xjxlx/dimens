@@ -1,6 +1,6 @@
 plugins {
     `kotlin-dsl`
-//    id("maven-publish")
+    id("maven-publish")
     kotlin("jvm") version "1.6.21"
 }
 
