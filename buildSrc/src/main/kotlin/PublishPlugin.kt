@@ -24,9 +24,9 @@ abstract class PublishPlugin : Plugin<Project> {
         project.extensions.getByType(LibraryExtension::class.java)
             .apply {
                 // 1: 添加插件信息
-                project.group = "com.github.jitpack"
-                project.version = VERSION
                 project.pluginManager.apply("maven-publish")
+                project.group = "com.github.xjxlx"
+                project.version = VERSION
 
                 // 2：注册publishing.release
                 publishing {
@@ -72,7 +72,7 @@ abstract class PublishPlugin : Plugin<Project> {
                     this.publications {
                         create("release", MavenPublication::class.java, object : Action<MavenPublication> {
                             override fun execute(it: MavenPublication) {
-                                it.groupId = "com.android" // 组的名字
+                                it.groupId = "com.android.apphelper" // 组的名字
                                 it.artifactId = modelName // 插件名称
                                 it.version = VERSION // 版本号
 
