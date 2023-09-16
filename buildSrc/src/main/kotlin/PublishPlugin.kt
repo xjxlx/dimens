@@ -13,6 +13,12 @@ abstract class PublishPlugin : Plugin<Project> {
     private val VERSION = latestGitTag().ifEmpty { Config.versionName }
 
     override fun apply(project: Project) {
+        // 1: 添加插件信息
+        project.pluginManager.apply("maven-publish")
+        project.group = "com.github.jitpack"
+        project.version = "1.0"
+
+        // 2：注册publishing.release
         registerPublishType(project)
     }
 
@@ -23,12 +29,6 @@ abstract class PublishPlugin : Plugin<Project> {
         // LibraryExtension.android
         project.extensions.getByType(LibraryExtension::class.java)
             .apply {
-                // 1: 添加插件信息
-                project.pluginManager.apply("maven-publish")
-                project.group = "com.github.xjxlx"
-                project.version = VERSION
-
-                // 2：注册publishing.release
                 publishing {
                     singleVariant("release") {
                         withSourcesJar()
