@@ -23,11 +23,10 @@ abstract class PublishPlugin : Plugin<Project> {
         // LibraryExtension.android
         project.extensions.getByType(LibraryExtension::class.java)
             .apply {
-
                 // 1: 添加插件信息
                 project.group = "com.github.jitpack"
                 project.version = VERSION
-                project.plugins.apply("maven-publish")
+                project.pluginManager.apply("maven-publish")
 
                 // 2：注册publishing.release
                 publishing {
