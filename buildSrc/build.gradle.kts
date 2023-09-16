@@ -1,14 +1,13 @@
 plugins {
     `kotlin-dsl`
     id("maven-publish")
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.6.21"
 }
 
 group = "com.github.jitpack"
 version = "1.0"
 
 repositories {
-    gradlePluginPortal()
     google()
     mavenLocal()
     mavenCentral()
