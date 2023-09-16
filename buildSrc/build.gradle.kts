@@ -4,6 +4,9 @@ plugins {
     kotlin("jvm") version "1.8.0"
 }
 
+group = "com.github.jitpack"
+version = "1.0"
+
 repositories {
     gradlePluginPortal()
     google()
