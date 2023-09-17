@@ -14,12 +14,12 @@ abstract class PublishPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         // 1: 添加插件信息
-//        project.pluginManager.apply("maven-publish")
-//        project.group = "com.github.jitpack"
-//        project.version = "1.0"
+        project.pluginManager.apply("maven-publish")
+        project.group = "com.github.jitpack"
+        project.version = "1.0"
 
         // 2：注册publishing.release
-//        registerPublishType(project)
+        registerPublishType(project)
     }
 
     /**
