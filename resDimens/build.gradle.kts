@@ -9,7 +9,6 @@ apply<PublishPlugin>()
 //group = "com.github.jitpack"
 //version = "1.0"
 
-
 android {
     namespace = "com.apphelper.dimens"
     compileSdk = (Config.compileSdk)
