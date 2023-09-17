@@ -19,7 +19,7 @@ abstract class PublishPlugin : Plugin<Project> {
         project.version = "1.0"
 
         // 2：注册publishing.release
-        registerPublishType(project)
+//        registerPublishType(project)
     }
 
     /**
