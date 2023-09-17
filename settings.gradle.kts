@@ -24,7 +24,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "resDimens"
+rootProject.name = "dimens"
 include(":resDimens")
 include(":app")
 
