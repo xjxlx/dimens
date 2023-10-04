@@ -2,9 +2,9 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
 //    id("maven-publish")
+    id("com.android.plugin.publish2")
 }
-
-apply<PublishPlugin>()
+apply<com.android.plugin.plugin.PublishPlugin>()
 
 //group = "com.github.jitpack"
 //version = "1.0"
