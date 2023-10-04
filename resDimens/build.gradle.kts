@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-//    id("maven-publish")
+    id("maven-publish")
     id("com.android.plugin.publish2")
 }
 apply<com.android.plugin.plugin.PublishPlugin>()
@@ -12,10 +12,10 @@ apply<com.android.plugin.plugin.PublishPlugin>()
 
 android {
     namespace = "com.apphelper.dimens"
-    compileSdk = (Config.compileSdk)
+    compileSdk = 30
 
     defaultConfig {
-        minSdk = Config.minSdk
+        minSdk = 24
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -31,12 +31,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-//    publishing {
-//        singleVariant("release") {
-//            withSourcesJar()
-//            withJavadocJar()
-//        }
-//    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 //afterEvaluate {
