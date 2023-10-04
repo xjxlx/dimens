@@ -2,10 +2,9 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("maven-publish")
-    id("com.android.plugin.publish2")
+//    id("com.android.plugin.publish2")
 }
-apply<com.android.plugin.plugin.PublishPlugin>()
-
+//apply<com.android.plugin.plugin.PublishPlugin>()
 
 //group = "com.github.jitpack"
 //version = "1.0"
@@ -39,19 +38,19 @@ android {
     }
 }
 
-//afterEvaluate {
-//    publishing { // 发布配置
-//        publications {// 发布内容
-//            create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
-//                // 从当前 module 的 release 包中发布
-//                from(components["release"])
-//                groupId = "com.android.helper"
-//                artifactId = getModelNameForNamespace() // 插件名称
-//                version = latestGitTag().ifEmpty { Config.versionName } // 版本号
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing { // 发布配置
+        publications {// 发布内容
+            create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+                // 从当前 module 的 release 包中发布
+                from(components["release"])
+                groupId = "com.android.helper"
+                artifactId = getModelNameForNamespace() // 插件名称
+                version = latestGitTag().ifEmpty { "" } // 版本号
+            }
+        }
+    }
+}
 
 /**
  * 获取model的name
