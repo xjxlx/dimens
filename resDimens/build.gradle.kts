@@ -6,8 +6,8 @@ plugins {
 }
 //apply<com.android.plugin.plugin.PublishPlugin>()
 
-//group = "com.github.jitpack"
-//version = "1.0"
+group = "com.github.jitpack"
+version = "1.0"
 
 android {
     namespace = "com.apphelper.dimens"
