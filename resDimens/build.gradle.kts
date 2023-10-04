@@ -45,8 +45,8 @@ afterEvaluate {
             create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
                 // 从当前 module 的 release 包中发布
                 from(components["release"])
-                groupId = "com.android.helper"
-                artifactId = getModelNameForNamespace() // 插件名称
+                groupId = "com.github.xjxlx"
+                artifactId = groupId + getModelNameForNamespace()  // 插件名称
                 version = latestGitTag().ifEmpty { "" } // 版本号
             }
         }
