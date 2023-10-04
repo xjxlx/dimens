@@ -4,7 +4,7 @@ buildscript {
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
 
 
-        classpath("com.android.helper:publish2:1.0.0")
+//        classpath("com.android.helper:publish2:1.0.0")
     }
 }
 
