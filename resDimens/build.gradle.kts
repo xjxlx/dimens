@@ -43,10 +43,11 @@ afterEvaluate {
         publications {// 发布内容
             create<MavenPublication>("publishPlugins") {// 注册一个名字为 release 的发布内容
                 // 从当前 module 的 release 包中发布
-                from(components["release"])
                 groupId = "com.github.xjxlx"
                 artifactId = getModelNameForNamespace()  // 插件名称
                 version = latestGitTag().ifEmpty { "master-SNAPSHOT" } // 版本号
+
+                from(components["release"])
             }
         }
     }
