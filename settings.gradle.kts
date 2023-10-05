@@ -8,7 +8,13 @@ pluginManagement {
         google()
         mavenLocal()
         mavenCentral()
-        maven { setUrl("https://jitpack.io") }
+        maven {
+            setUrl("https://jitpack.io")
+            // 安全验证，可以不加
+            content {
+                includeGroup("com.github.xjxlx")
+            }
+        }
     }
 
 //    // 配置本地插件
@@ -29,6 +35,7 @@ dependencyResolutionManagement {
         mavenCentral()
         maven {
             setUrl("https://jitpack.io")
+            // 安全验证，可以不加
             content {
                 includeGroup("com.github.xjxlx")
             }
