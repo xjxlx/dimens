@@ -6,8 +6,8 @@ plugins {
 }
 //apply<com.android.plugin.plugin.PublishPlugin>()
 
-//group = "com.github.jitpack"
-//version = "1.0"
+group = "com.github.jitpack"
+version = "1.0"
 
 android {
     namespace = "com.apphelper.dimens"
@@ -41,7 +41,7 @@ android {
 afterEvaluate {
     publishing { // 发布配置
         publications {// 发布内容
-            create<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+            create<MavenPublication>("publishPlugins") {// 注册一个名字为 release 的发布内容
                 // 从当前 module 的 release 包中发布
                 from(components["release"])
                 groupId = "com.github.xjxlx"
