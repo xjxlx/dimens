@@ -4,11 +4,11 @@ pluginManagement {
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/repository/central") }
         maven { setUrl("https://maven.aliyun.com/repository/gradle-plugin") }
-        maven { setUrl("https://jitpack.io") }
         gradlePluginPortal()
         google()
         mavenLocal()
         mavenCentral()
+        maven { setUrl("https://jitpack.io") }
     }
 
 //    // 配置本地插件
@@ -24,10 +24,15 @@ dependencyResolutionManagement {
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/repository/google") }
         maven { setUrl("https://maven.aliyun.com/repository/central") }
-        maven { setUrl("https://jitpack.io") }
         google()
         mavenLocal()
         mavenCentral()
+        maven {
+            setUrl("https://jitpack.io")
+            content {
+                includeGroup("com.github.xjxlx")
+            }
+        }
     }
 }
 

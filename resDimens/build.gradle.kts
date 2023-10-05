@@ -46,7 +46,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.xjxlx"
                 artifactId = getModelNameForNamespace()  // 插件名称
-                version = latestGitTag().ifEmpty { "" } // 版本号
+                version = latestGitTag().ifEmpty { "master-SNAPSHOT" } // 版本号
             }
         }
     }
