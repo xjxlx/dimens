@@ -49,13 +49,6 @@ afterEvaluate {
                 version = latestGitTag().ifEmpty { "" } // 版本号
             }
         }
-
-        repositories {
-            maven {
-                name = "myRepo"
-                url = uri(layout.buildDirectory.dir("repo"))
-            }
-        }
     }
 }
 
