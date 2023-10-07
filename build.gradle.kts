@@ -3,9 +3,8 @@ buildscript {
         // 发布JitPack的依赖版本，【3.0+以上用1.5】，【4.1+以上用2.0】，【4.6+以上用2.1】
         classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
 
-        classpath("com.android.tools.build:gradle:7.4.2")
+        // classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
-//        classpath("com.android.helper:publish2:1.0.0")
     }
 }
 
