@@ -35,24 +35,23 @@ android {
             withJavadocJar()
         }
     }
+
 }
 
-publishing { // 发布配置
-    publications { // 发布的内容
-        register<MavenPublication>("release") { // 注册一个名字为 release 的发布内容
-            groupId = "com.github.xjxlx"
-            artifactId = getModelNameForNamespace()  // 插件名称
-            version = latestGitTag().ifEmpty { "master-SNAPSHOT" } // 版本号
+afterEvaluate {// 在所有的配置都完成之后执行
+    publishing { // 发布配置
+        publications {
+            register<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
+                groupId = "com.github.xjxlx"
+                artifactId = getModelNameForNamespace()  // 插件名称
+                version = latestGitTag().ifEmpty { "master-SNAPSHOT" } // 版本号
 
-            afterEvaluate { // 在所有的配置都完成之后执行
                 // 从当前 module 的 release 包中发布
                 from(components["release"])
             }
         }
     }
 }
-
-
 
 /**
  * 获取model的name
