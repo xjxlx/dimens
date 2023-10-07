@@ -29,12 +29,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-//    publishing {
-//        singleVariant("release") {
-//            withSourcesJar()
-//            withJavadocJar()
-//        }
-//    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 publishing { // 发布配置
