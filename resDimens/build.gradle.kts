@@ -30,12 +30,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    publishing {
-        singleVariant("MavenPublication") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
+//    publishing {
+//        singleVariant("MavenPublication") {
+//            withSourcesJar()
+//            withJavadocJar()
+//        }
+//    }
 }
 
 afterEvaluate {
