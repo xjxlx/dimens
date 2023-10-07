@@ -8,12 +8,7 @@ pluginManagement {
         google()
         mavenLocal()
         mavenCentral()
-        maven {
-            setUrl("https://jitpack.io")
-            content {
-                includeGroup("com.github.xjxlx")
-            }
-        }
+        maven { setUrl("https://jitpack.io") }
     }
 
 //    // 配置本地插件
@@ -32,12 +27,7 @@ dependencyResolutionManagement {
         google()
         mavenLocal()
         mavenCentral()
-        maven {
-            setUrl("https://jitpack.io")
-            content {
-                includeGroup("com.github.xjxlx")
-            }
-        }
+        maven { setUrl("https://jitpack.io") }
     }
 }
 
