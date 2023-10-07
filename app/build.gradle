@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    compileSdk = (Config.compileSdk)
+    compileSdk = 30
     namespace = "android.apphelper.dimens.app"
     defaultConfig {
         applicationId "android.apphelper.dimens"
-        minSdkVersion Config.minSdk
-        targetSdkVersion Config.targetSdk
-        versionCode Config.versionCode
-        versionName Config.versionName
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

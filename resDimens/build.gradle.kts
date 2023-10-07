@@ -41,7 +41,7 @@ android {
 afterEvaluate {
     publishing { // 发布配置
         publications {// 发布内容
-            create<MavenPublication>("publishPlugins") {// 注册一个名字为 release 的发布内容
+            create<MavenPublication>("maven") {// 注册一个名字为 release 的发布内容
                 // 从当前 module 的 release 包中发布
                 groupId = "com.github.xjxlx"
                 artifactId = getModelNameForNamespace()  // 插件名称

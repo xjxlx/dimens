@@ -8,7 +8,12 @@ pluginManagement {
         google()
         mavenLocal()
         mavenCentral()
-        maven { setUrl("https://jitpack.io") }
+        maven {
+            setUrl("https://jitpack.io")
+            content {
+                includeGroup("com.github.xjxlx")
+            }
+        }
     }
 
 //    // 配置本地插件
@@ -18,8 +23,8 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    //    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/repository/google") }
@@ -27,9 +32,18 @@ dependencyResolutionManagement {
         google()
         mavenLocal()
         mavenCentral()
-        maven { setUrl("https://jitpack.io") }
+        maven {
+            setUrl("https://jitpack.io")
+            content {
+                includeGroup("com.github.xjxlx")
+            }
+        }
     }
 }
+
+//dependencies {
+//    implementation 'com.github.User:Repo:Version'
+//}
 
 rootProject.name = "dimens"
 include(":resDimens")
