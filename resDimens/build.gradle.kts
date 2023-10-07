@@ -31,7 +31,7 @@ android {
     }
 
     publishing {
-        singleVariant("release") {
+        singleVariant("MavenPublication") {
             withSourcesJar()
             withJavadocJar()
         }
@@ -52,6 +52,14 @@ afterEvaluate {
         }
     }
 }
+
+
+
+dependencies {
+    implementation("com.github.jitpack:android-example:1.0.1")
+}
+
+
 
 /**
  * 获取model的name
