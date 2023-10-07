@@ -5,7 +5,7 @@ plugins {
 }
 //apply<com.android.plugin.plugin.PublishPlugin>()
 
-group = "com.github.jitpack"
+group = "com.github.xjxlx"
 version = "1.0"
 
 android {
@@ -35,7 +35,6 @@ android {
             withJavadocJar()
         }
     }
-
 }
 
 afterEvaluate {// 在所有的配置都完成之后执行
