@@ -3,7 +3,6 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("maven-publish")
-    id("io.github.xjxlx.publish") version "1.4.4"
 }
 
 group = "com.github.xjxlx"
@@ -80,7 +79,7 @@ android {
 //        }
 //}
 
-apply<com.android.helper.plugin.PublishPlugin>()
+//apply<com.android.helper.plugin.PublishPlugin>()
 
 //configure<com.android.helper.plugin.PublishPluginExtension> {
 //    groupId.set("com.github.xjxlx")
