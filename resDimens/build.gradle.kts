@@ -1,12 +1,17 @@
+import com.android.helper.plugin.PublishPlugin
 
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("maven-publish")
+
+    id("io.github.xjxlx.publish")
 }
 
+apply<PublishPlugin>()
+
 group = "com.github.xjxlx"
-version = "1.0"
+version = "1.0.0"
 
 android {
     namespace = "com.apphelper.dimens"
@@ -24,16 +29,9 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-//    publishing {
-//        singleVariant("release") {
-//            // withSourcesJar()
-//            //  withJavadocJar()
-//        }
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
 //    }
 }
 
@@ -50,39 +48,4 @@ android {
 //            }
 //        }
 //    }
-//}
-
-///**
-// * 获取model的name
-// */
-//fun getModelNameForNamespace(): String {
-//    var result = "default"
-//    android.namespace?.let {
-//        if (it.contains(".")) {
-//            result = it.split(".")
-//                .reversed()
-//                .first()
-//        }
-//    }
-//    return result
-//}
-//
-///**
-// * 获取 git 仓库中最新的 tag作为版本号
-// */
-//fun latestGitTag(): String {
-//    val process = ProcessBuilder("git", "describe", "--tags", "--abbrev=0").start()
-//    return process.inputStream.bufferedReader()
-//        .use { bufferedReader ->
-//            bufferedReader.readText()
-//                .trim()
-//        }
-//}
-
-//apply<com.android.helper.plugin.PublishPlugin>()
-
-//configure<com.android.helper.plugin.PublishPluginExtension> {
-//    groupId.set("com.github.xjxlx")
-//    artifactId.set("dimens")
-//    version.set("v2.0.0.8")
 //}
