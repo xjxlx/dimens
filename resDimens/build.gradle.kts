@@ -1,9 +1,8 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-//    id("maven-publish")
 
-    id("io.github.xjxlx.publish")
+    id("io.github.xjxlx.publish") version "1.2.0"
 }
 
 apply<com.android.helper.plugin.PublishPlugin>()
