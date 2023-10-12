@@ -10,16 +10,10 @@ pluginManagement {
         mavenCentral()
         maven { setUrl("https://jitpack.io") }
     }
-
-//    // 配置本地插件
-//    plugins {
-//        id("io.github.xjxlx.publish") version "1.0.9"
-//    }
 }
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    //    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         maven { setUrl("https://maven.aliyun.com/repository/public") }
         maven { setUrl("https://maven.aliyun.com/repository/google") }
@@ -30,10 +24,6 @@ dependencyResolutionManagement {
         maven { setUrl("https://jitpack.io") }
     }
 }
-
-//dependencies {
-//    implementation 'com.github.User:Repo:Version'
-//}
 
 rootProject.name = "dimens"
 include(":resDimens")
