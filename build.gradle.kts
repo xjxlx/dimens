@@ -1,9 +1,9 @@
 buildscript {
 
     // 从本地插件读取
-    repositories {
-        maven { setUrl("https://plugins.gradle.org/m2/") }
-    }
+//    repositories {
+//        maven { setUrl("https://plugins.gradle.org/m2/") }
+//    }
 
     dependencies {
         // classpath("io.github.xjxlx:publish:1.2.0")
