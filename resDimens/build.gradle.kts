@@ -8,8 +8,8 @@ plugins {
 
 //apply<com.android.helper.plugin.PublishPlugin>()
 
-group = "com.github.xjxlx"
-version = "1.0.0"
+group = "com.github.jitpack"
+version = "1.0"
 
 android {
     namespace = "com.apphelper.dimens"
