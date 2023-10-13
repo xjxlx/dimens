@@ -6,9 +6,6 @@ plugins {
 
 apply<com.android.helper.plugin.PublishPlugin>()
 
-//group = "com.github.jitpack"
-//version = "1.0"
-
 android {
     namespace = "com.apphelper.dimens"
     compileSdk = 30
@@ -30,8 +27,4 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
-//    publishing {
-//        singleVariant("release")
-//    }
 }
