@@ -32,9 +32,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-//    publishing {
-//        singleVariant("release")
-//    }
+    publishing {
+        singleVariant("release")
+    }
 }
 
 //afterEvaluate {// 在所有的配置都完成之后执行
