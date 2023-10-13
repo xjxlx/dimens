@@ -20,13 +20,3 @@ plugins {
     id("org.jetbrains.kotlin.android") version "1.8.10" apply false
     id("org.jetbrains.kotlin.jvm") version "1.7.0" apply false
 }
-
-
-
-
-
-
-
-
-
-
