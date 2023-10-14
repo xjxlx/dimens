@@ -5,7 +5,7 @@ plugins {
     id("io.github.xjxlx.publish")
 }
 
-//apply<com.android.helper.plugin.PublishPlugin>()
+apply<com.android.helper.plugin.PublishPlugin>()
 
 //group = "com.github.jitpack"
 //version = "1.0"
