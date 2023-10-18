@@ -5,7 +5,6 @@ plugins {
     id("io.github.xjxlx.catalog")
 }
 
-
 android {
     namespace = "com.apphelper.dimens"
     compileSdk = 30
