@@ -27,3 +27,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 }
+
+configure<com.android.helper.plugin.PublishPluginExtension> {
+    version.set("1.0.1") // 默认的数据是：获取github上项目中推送的最后的tag
+}
