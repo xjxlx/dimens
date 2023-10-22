@@ -22,7 +22,3 @@ android {
         }
     }
 }
-
-configure<com.android.helper.plugin.PublishPluginExtension> {
-    version.set("1.0.0") // 默认的数据是：获取github上项目中推送的最后的tag
-}
