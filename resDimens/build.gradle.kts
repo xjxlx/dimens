@@ -21,13 +21,8 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
 }
 
 configure<com.android.helper.plugin.PublishPluginExtension> {
-    version.set("1.0.1") // 默认的数据是：获取github上项目中推送的最后的tag
+    version.set("1.0.0") // 默认的数据是：获取github上项目中推送的最后的tag
 }
