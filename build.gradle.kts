@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("io.github.xjxlx:publish:1.0.0")
+        classpath("io.github.xjxlx:publish:1.0.1")
         classpath("io.github.xjxlx:catalog:1.0.1")
 
         // 发布JitPack的依赖版本，【3.0+以上用1.5】，【4.1+以上用2.0】，【4.6+以上用2.1】
