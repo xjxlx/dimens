@@ -4,7 +4,7 @@ plugins {
     id("kotlin-android")
     // id("maven-publish")
      id("io.github.xjxlx.publish")
-     id("io.github.xjxlx.catalog")
+//     id("io.github.xjxlx.catalog")
 }
 
 android {
