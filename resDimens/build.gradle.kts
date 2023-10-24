@@ -1,9 +1,8 @@
-@Suppress("DSL_SCOPE_VIOLATION")
-plugins {
+@Suppress("DSL_SCOPE_VIOLATION") plugins {
     id("com.android.library")
     id("kotlin-android")
     // id("maven-publish")
-     id("io.github.xjxlx.publish")
+    id("io.github.xjxlx.publish")
 //     id("io.github.xjxlx.catalog")
 }
 
