@@ -27,6 +27,7 @@ plugins {
     // id("org.jetbrains.kotlin.jvm") version "1.7.0" apply false
     alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
 
-    id("io.github.xjxlx.publish") version "2.0.1" apply false
+    id("io.github.xjxlx.publish") version "1.0.0" apply false
+    id("io.github.xjxlx.catalog") version "1.0.0" apply false
 }
 true
