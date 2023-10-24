@@ -12,8 +12,8 @@ buildscript {
         classpath(libs.com.android.tools.build.gradle)
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
 
-        classpath("io.github.xjxlx:publish:1.0.0")
-        classpath("io.github.xjxlx:catalog:1.0.0")
+        classpath("io.github.xjxlx:publish:2.0.0")
+        classpath("io.github.xjxlx:catalog:2.0.0")
     }
 }
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
