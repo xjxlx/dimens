@@ -2,7 +2,7 @@
     id("com.android.library")
     id("kotlin-android")
     id("io.github.xjxlx.publish")
-    id("io.github.xjxlx.catalog")
+//    id("io.github.xjxlx.catalog")
 }
 
 android {
