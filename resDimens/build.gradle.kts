@@ -2,7 +2,6 @@
     id("com.android.library")
     id("kotlin-android")
     id("io.github.xjxlx.publish")
-//    id("io.github.xjxlx.catalog")
 }
 
 android {
@@ -22,29 +21,15 @@ android {
         }
     }
 
-//    compileOptions {
-//        sourceCompatibility = JavaVersion.VERSION_11
-//        targetCompatibility = JavaVersion.VERSION_11
-//    }
-
-//    publishing {
-//        singleVariant("release")
-//    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
 }
 
-//group = "com.github.jitpack"
-//version = "1.0"
-//
-//afterEvaluate {// 在所有的配置都完成之后执行
-//    publishing { // 发布配置
-//        publications {
-//            register<MavenPublication>("release") {// 注册一个名字为 release 的发布内容
-//                groupId = "com.github.xjxlx"
-//                artifactId = "dimens"  // 插件名称
-//                version = "1.0.3"  // 版本号
-//                // 从当前 module 的 release 包中发布
-//                from(components["release"])
-//            }
-//        }
-//    }
+//com.github.xjxlx
+//configure<com.android.helper.plugin.PublishPluginExtension> {
+//    groupId.set("com.github.xjxlx") // 默认的数据是：com.github.xjxlx
+//    artifactId.set("dimens") // 默认的数据是：model的名字
+//    // version.set("xxxx") // 默认的数据是：获取github上项目中推送的最后的tag
 //}
