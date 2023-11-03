@@ -6,10 +6,12 @@
 
 android {
     namespace = "com.apphelper.dimens"
-    compileSdk = 30
+    compileSdk = libs.versions.compileSdks.get()
+        .toInt()
 
     defaultConfig {
-        minSdk = 24
+        minSdk = libs.versions.minSdk.get()
+            .toInt()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
