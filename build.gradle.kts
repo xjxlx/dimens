@@ -12,7 +12,7 @@ buildscript {
         classpath(libs.com.android.tools.build.gradle)
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
 
-        classpath("io.github.xjxlx:publish:1.0.0")
+//        classpath("io.github.xjxlx:publish:1.0.0")
         // classpath("io.github.xjxlx:catalog:1.0.2")
     }
 }
