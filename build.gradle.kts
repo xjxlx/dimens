@@ -9,8 +9,8 @@ buildscript {
         // classpath("com.github.dcendents:android-maven-gradle-plugin:2.1")
         // classpath(libs.com.github.dcendents.android.maven.gradle.plugin)
         // classpath("com.android.tools.build:gradle:7.4.2")
+        // classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
         classpath(libs.com.android.tools.build.gradle)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
     }
 }
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
