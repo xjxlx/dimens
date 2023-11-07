@@ -41,7 +41,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         create("libs") {
-            from("com.android:catalog:1.0.0")
+            from("com.android:catalogs:1.0.0")
         }
     }
 }
