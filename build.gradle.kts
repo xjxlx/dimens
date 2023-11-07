@@ -13,6 +13,7 @@ buildscript {
         classpath(libs.com.android.tools.build.gradle)
     }
 }
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     // id("com.android.application") version "7.4.2" apply false
