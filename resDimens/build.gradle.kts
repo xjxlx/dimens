@@ -5,9 +5,8 @@
 }
 
 android {
-    namespace = "com.apphelper.dimens"
-    compileSdk = libs.versions.compileSdks.get()
-        .toInt()
+    namespace = "com.android.dimens"
+    compileSdk = libs.versions.compileSdks.get().toInt()
 
     defaultConfig {
         minSdk = libs.versions.minSdk.get()

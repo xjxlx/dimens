@@ -53,5 +53,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "dimens"
 include(":resDimens")
-include(":app")
+//include(":app")
 
